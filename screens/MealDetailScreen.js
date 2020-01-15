@@ -1,11 +1,16 @@
 import React from "react";
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, Button} from 'react-native';
 
 const MealDetailScreen = props => {
     return (
         <View style={styles.screen}>
-            <Text>The Categories Screen!</Text>
+            <Text>The Meal Detail Screen!</Text>
+
+            <Button title={"Go Back to Categories"} onPress={() => {
+                props.navigation.popToTop();
+            }}/>
         </View>
+
     );
 };
 
@@ -16,4 +21,4 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     }
 });
-export default MealDetail
+export default MealDetailScreen;
