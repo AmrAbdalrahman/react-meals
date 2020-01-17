@@ -1,5 +1,5 @@
 import React from 'react';
-import {Platform} from 'react-native';
+import {Platform, Text} from 'react-native';
 import {createAppContainer} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
 import {createBottomTabNavigator} from 'react-navigation-tabs';
@@ -59,6 +59,12 @@ const tabScreenConfig = {
                 return <Icon name="ios-restaurant" size={25} color={tabInfo.tintColor}/>;
             },
             tabBarColor: Colors.primaryColor,
+            tabBarLabel:
+                Platform.OS === 'android' ? (
+                    <Text style={{fontFamily: 'OpenSans-Bold'}}>Meals</Text>
+                ) : (
+                    'Meals'
+                ),
         },
     },
     Favorites: {
@@ -69,20 +75,26 @@ const tabScreenConfig = {
                 return <Icon name="ios-star" size={25} color={tabInfo.tintColor}/>;
             },
             tabBarColor: Colors.accentColor,
+            tabBarLabel:
+                Platform.OS === 'android' ? (
+                    <Text style={{fontFamily: 'OpenSans-Bold'}}>Favorites</Text>
+                ) : (
+                    'Favorites'
+                ),
         },
     },
 };
 
 const MealsFavTabNavigator = Platform.OS === 'android' ?
     createMaterialBottomTabNavigator(tabScreenConfig,
-    {
-        activeTintColor: 'white',
-        shifting: true,
-        barStyle: {
-            backgroundColor: Colors.primaryColor,
-        },
+        {
+            activeTintColor: 'white',
+            shifting: true,
+            barStyle: {
+                backgroundColor: Colors.primaryColor,
+            },
 
-    }) :
+        }) :
     createBottomTabNavigator(tabScreenConfig,
         {
             tabBarOptions: {
