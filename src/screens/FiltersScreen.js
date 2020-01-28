@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     title: {
-        fontFamily: 'open-sans-bold',
+        fontFamily: 'OpenSans-Bold',
         fontSize: 22,
         margin: 20,
         textAlign: 'center',
